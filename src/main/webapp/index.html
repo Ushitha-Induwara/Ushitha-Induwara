@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map - Colombo, Sri Lanka</title>
+    <style>
+        /* Reset default margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Make html and body full height */
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Style the map container to take full viewport height */
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Map container -->
+    <div id="map"></div>
+
+    <!-- Google Maps JavaScript API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap" async defer></script>
+
+    <script>
+        /**
+         * Initialize the Google Map
+         */
+        function initMap() {
+            // Set the coordinates for Colombo, Sri Lanka
+            const colombo = { lat: 6.9271, lng: 79.8612 };
+
+            // Create the map centered on Colombo
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: colombo,
+                mapTypeId: 'roadmap'
+            });
+
+            // Add a marker at the center location
+            const marker = new google.maps.Marker({
+                position: colombo,
+                map: map,
+                title: "Colombo, Sri Lanka"
+            });
+        }
+    </script>
+</body>
+</html>
